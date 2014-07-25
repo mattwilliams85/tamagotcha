@@ -4,6 +4,8 @@ div .bar {
     display: inline-block;
     border:2px solid #111;
     border-radius: 10px;
+    position:absolute;
+    bottom:0;
 }
 
 .outer-bar {
@@ -12,6 +14,7 @@ div .bar {
     border-radius: 10px;
     background-color: #292929;
     box-shadow: 2px 2px 2px #888888;
+    position:relative;
 }
 
 td {

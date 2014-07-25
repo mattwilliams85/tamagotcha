@@ -6,6 +6,7 @@ var Tamagotcha = {
     this.foodLevel = 100;
     this.sleepLevel = 100;
     this.moodLevel = 100;
+    this.ageLevel = 1;
   },
 }
 
@@ -16,20 +17,19 @@ var countDown = function(myPet) {
   myPet.foodLevel -= 1;
   myPet.sleepLevel -= 1;
   myPet.moodLevel -= 0.5;
+  console.log(myPet.ageLevel)
+  $('h4').text("LVL " +myPet.ageLevel);
   $('#foodNum').text(myPet.foodLevel);
   $('#sleepNum').text(myPet.sleepLevel);
   $('#moodNum').text(myPet.moodLevel);
 // Stat bar animations //
   $('#foodBar').animate({
-  marginTop: 101 - myPet.foodLevel,
   height: myPet.foodLevel,
   });
   $('#sleepBar').animate({
-  marginTop: 101 - myPet.sleepLevel,
   height: myPet.sleepLevel
   });
   $('#moodBar').animate({
-  marginTop: 101 - myPet.moodLevel,
   height: myPet.moodLevel
   });
 // Death check //
@@ -41,12 +41,12 @@ $(document).ready(function(){
 // Names Pet and starts Game //
   $('#nameMe').submit(function(){
     event.preventDefault();
+    $('form#nameMe').hide();
     $('.hideMe').show();
     var myPet = Object.create(Tamagotcha);
     myPet.initialize($('#input').val());
-
     $('span').text(myPet.name.toUpperCase());
-// Timer Set //
+// Stat Reduction Timer //
     var time = setInterval(function() {
       countDown(myPet);
 // Death conditon //
@@ -56,7 +56,9 @@ $(document).ready(function(){
       if (myPet.foodLevel <= 0) {
         console.log("RIP :'(")
       }
-    },1000);
+    },2500);
+// Level Up Timer //
+      setTimeout(myPet.ageLevel,5000);
 // Button animation and cooldown //
     $('.button').click(function(){
       event.preventDefault();
@@ -73,7 +75,7 @@ $(document).ready(function(){
         myPet.foodLevel += 10;
         $('#foodBar').css("height",myPet.foodLevel)
       } else {
-        $('#message').text("He's not hungry right now...").fadeOut(2000);
+        $('#message').text("He's not hungry right now...");
         myPet.moodLevel -= 10;
       };
     });
@@ -83,7 +85,7 @@ $(document).ready(function(){
         myPet.sleepLevel += 10;
         $('#sleepBar').css("height",myPet.sleepLevel)
       } else {
-        $('#message').text("He's not sleepy right now...").fadeOut(2000);
+        $('#message').text("He's not sleepy right now...");
         myPet.moodLevel -= 10;
       };
     });
