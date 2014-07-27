@@ -29,14 +29,14 @@ var countDown = function(myPet) {
   $('#moodBar').animate({
   height: myPet.moodLevel
   });
-// Death check //
 
 }
 // var barHeight = percent * $element.width() / 100;
 $(document).ready(function() {
-
+$('#change').attr("src", 'img/r_gift.gif');
 // Names Pet and starts Game //
   $('#nameMe').submit(function() {
+    $('#change').attr("src", 'img/r_happy.gif');
     var audio1 = new Audio('sound/blip.wav');
     var audio2 = new Audio('sound/bloop.wav');
     var audio3 = new Audio('sound/bleep.wav');
@@ -48,20 +48,18 @@ $(document).ready(function() {
       $('.hideMe').show();
       var myPet = Object.create(Tamagotcha);
       myPet.initialize($('#input').val());
-      $('span').text(myPet.name.charAt(0).toUpperCase() + myPet.name.slice(1));
+      $('#title').text("Lil'" + myPet.name.charAt(0).toUpperCase() + myPet.name.slice(1));
       $('#level').text("LVL " +myPet.ageLevel);
   // Stat Reduction Timer //
       var time = setInterval(function() {
         countDown(myPet);
   // Death conditon //
         if (myPet.foodLevel <= 0 || myPet.sleepLevel <= 0 || myPet.moodLevel <= 0) {
-          clearInterval(time);
-        }
-        if (myPet.foodLevel <= 0) {
+        clearInterval(time);
         $('#message').text("You killed him, you monster...");
         $('#change').attr("src", 'img/r_rip.gif');
         }
-      },2500);
+      },1000);
   // Level Up Timer //
         setTimeout(myPet.ageLevel,5000);
   // Button animation and cooldown //
@@ -119,6 +117,7 @@ $(document).ready(function() {
           audio2.play();
           myPet.moodLevel += (100 - myPet.moodLevel) 
           $('#message').text("He plays with you, a little...");
+          $('#change').attr("src", 'img/r_play.gif');
         }
       } else {
         $('#message').text("He's all tuckered out, poor guy...");
