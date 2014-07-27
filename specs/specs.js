@@ -10,14 +10,6 @@ describe("tamagotcha", function() {
     });
   });
 
-  // describe("countDown", function() {
-  //   it("No stat goes below 0 without stopping", function() {
-  //     var myPet = Object.create(Tamagotcha);
-  //     myPet.countDown();
-  //     myPet.foodLevel.should.not.equal(-2);
-  //   });
-  // });
-
   describe("isAlive", function() {
     it("Is alive if all levels are above 0", function() {
       var myPet = Object.create(Tamagotcha);
