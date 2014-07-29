@@ -9,10 +9,10 @@ body {
     left: 40%;
     margin-top: -100px;
     margin-left: -100px;
-    border-radius:100px;
+    border-radius:150px;
     border:2px solid black;
     background-color:orange;
-    box-shadow: 2px 7px 2px #16181C;
+    box-shadow: 2px 15px 15px #16181C;
     font-family: 'Press Start 2P', cursive;:
 }
 
@@ -22,6 +22,7 @@ body {
 }
 
 .container {
+    border:2px solid #946F24;
     border-radius:20px;
     margin-left:auto; 
     margin-right:auto; 
@@ -29,7 +30,6 @@ body {
     width:80%;
     height:60%;
     margin-top:5%;
-    opacity:0.95;
 }
 
 div p {
@@ -37,7 +37,7 @@ div p {
 }
 
 #input {
-    width:250px;
+    width:200px;
 }
 
 div .bar {
@@ -55,7 +55,7 @@ div .bar {
     height: 100px;
     border-radius: 10px;
     background-color: #292929;
-    box-shadow: 2px 2px 2px #888888;
+    box-shadow: 2px 2px 2px #fff;
     position:relative;
 }
 
@@ -69,12 +69,10 @@ td {
 
 #sleepBar {
     background-color:lightblue;
-    /*margin-left:30px;*/
 }
 
 #moodBar {
     background-color:pink;
-    /*margin-left:60px;*/
 }
 
 #feed,#sleep,#play {
@@ -82,6 +80,7 @@ td {
   margin-top:35px;
   padding:10px;
   border-radius:10px;
+  background-color:#991DCC;
 }
 
 #feed {
@@ -98,15 +97,18 @@ td {
 }
 
 #gifbox {
-    margin-top:50px;
-    float:right;
-   
+    margin-top:20px;
+    margin-right:55px;
+    right:90px;
+    position:absolute;
 }
 
 #message {
     border:4px groove #BFBBBF;
     padding:10px;
     height:70px;
+    width:450px;
+    margin-top:25px;
 }
 
 img {
@@ -121,4 +123,9 @@ img {
 
 span {
     font-size:1.2em;
+}
+
+#change {
+    max-height:165px;
+    max-width:150px;
 }

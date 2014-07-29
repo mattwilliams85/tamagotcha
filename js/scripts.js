@@ -49,7 +49,7 @@ $('#change').attr("src", 'img/r_gift.gif');
       var myPet = Object.create(Tamagotcha);
       myPet.initialize($('#input').val());
       $('#title').text("Lil'" + myPet.name.charAt(0).toUpperCase() + myPet.name.slice(1));
-      $('#level').text("LVL " +myPet.ageLevel);
+      $('#level').text("LVL " + myPet.ageLevel);
   // Stat Reduction Timer //
       var time = setInterval(function() {
         countDown(myPet);
@@ -61,12 +61,14 @@ $('#change').attr("src", 'img/r_gift.gif');
         }
       },1000);
   // Level Up Timer //
-        setTimeout(myPet.ageLevel,5000);
+        setInterval(function() {
+          myPet.ageLevel +=1
+        }, 100000);
   // Button animation and cooldown //
       $('.button').click(function(){
         event.preventDefault();
         $(".button").attr("disabled", "disabled");
-        $('.button').fadeTo(500,0.5)
+        $('.button').fadeTo(500,0.7)
         setTimeout(function(){
           $('.button').fadeTo(250,1)
           $(".button").removeAttr("disabled");
